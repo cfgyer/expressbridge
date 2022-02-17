@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { v4 } from 'uuid';
-import { AxiosRequestConfig } from 'axios';
+import axios from "axios";
+import { v4 } from "uuid";
+import { AxiosRequestConfig } from "axios";
 
 export type TelemetryConfig = Partial<AxiosRequestConfig> & {
   serviceName: string;
@@ -27,7 +27,7 @@ export class Telemetry {
         },
       });
     } catch (err) {
-      console.log('Error calling telemetry beacon', err);
+      console.log("Error calling telemetry beacon", err);
     }
   }
 
@@ -42,10 +42,10 @@ export class Telemetry {
         record.eb_event_id = tag;
       }
     } else if (payload) {
-      payload = typeof payload === 'string' ? JSON.parse(payload) : payload;
+      payload = typeof payload === "string" ? JSON.parse(payload) : payload;
       tag = payload.eb_event_id || tag;
       payload.eb_event_id = tag;
-      event[body ? 'body' : 'detail'] = payload;
+      event[body ? "body" : "detail"] = payload;
     } else {
       tag = event.eb_event_id || tag;
       event.eb_event_id = tag;

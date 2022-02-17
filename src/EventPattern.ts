@@ -64,9 +64,9 @@ function testValue(expected: unknown, actual: unknown): boolean {
   }
 
   // validate
-  if (typeof expected === 'string') {
+  if (typeof expected === "string") {
     // support simple wildcard-based matching
-    const wildcard = expected.indexOf('*');
+    const wildcard = expected.indexOf("*");
     if (wildcard === expected.length - 1) {
       result =
         result && (actual as string).includes(expected.substring(0, wildcard));
@@ -85,7 +85,7 @@ function testValue(expected: unknown, actual: unknown): boolean {
     } else {
       result = expected === actual;
     }
-  } else if (typeof expected === 'number' || typeof expected === 'boolean') {
+  } else if (typeof expected === "number" || typeof expected === "boolean") {
     // TODO: Match numbers/booleans
   } else if (expected instanceof RegExp) {
     // TODO: Match via RegEx

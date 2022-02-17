@@ -1,8 +1,8 @@
-import { ExpressBridge } from '../ExpressBridge';
-import type { handlerType } from '../EventPattern';
-import messages from './expressBridge.data';
+import { ExpressBridge } from "../ExpressBridge";
+import type { handlerType } from "../EventPattern";
+import messages from "./expressBridge.data";
 
-jest.mock('../Telemetry', () => {
+jest.mock("../Telemetry", () => {
   return {
     Telemetry: jest.fn().mockImplementation(() => {
       return {
@@ -13,11 +13,11 @@ jest.mock('../Telemetry', () => {
 });
 
 const basePattern = {
-  source: 'aws.*',
+  source: "aws.*",
 };
 
-describe('Test ExpressBridge', () => {
-  test('should always run hooks when option is set', async () => {
+describe("Test ExpressBridge", () => {
+  test("should always run hooks when option is set", async () => {
     const preHook = jest.fn((event) => Promise.resolve(event));
     const postHook = jest.fn((event) => Promise.resolve(event));
     const expressBridge = new ExpressBridge({ alwaysRunHooks: true });

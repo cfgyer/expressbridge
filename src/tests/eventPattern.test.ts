@@ -1,9 +1,9 @@
-import { stringScenarios, nestedScenarios } from './eventPattern.data';
-import { EventPattern } from '../EventPattern';
+import { stringScenarios, nestedScenarios } from "./eventPattern.data";
+import { EventPattern } from "../EventPattern";
 
-describe('Test EventPattern.test', () => {
+describe("Test EventPattern.test", () => {
   test.each(stringScenarios)(
-    'should produce correct test results given string pattern',
+    "should produce correct test results given string pattern",
     (patternString, actual, output) => {
       const basePattern = {
         source: patternString, //'orders.*'
@@ -26,7 +26,7 @@ describe('Test EventPattern.test', () => {
   );
 
   test.each(nestedScenarios)(
-    'should correctly match nested objects',
+    "should correctly match nested objects",
     (patternObj, actual, output) => {
       const pattern = new EventPattern(
         patternObj as any,
